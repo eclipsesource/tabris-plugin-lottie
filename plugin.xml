@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        id="tabris-plugin-lottie"
+        version="1.0.0">
+
+
+  <name>Tabris.js Lottie Plugin</name>
+  <description>A lottie plugin for Tabris.js</description>
+  <author>EclipseSource</author>
+  <license>Revised BSD License (3-clause license)</license>
+  <repo>https://github.com/eclipsesource/tabris-plugin-lottie.git</repo>
+  <issue>https://github.com/eclipsesource/tabris-plugin-lottie/issues</issue>
+
+  <js-module src="www/LottieView.js" name="lottieview">
+    <clobbers target="eslottie.LottieView" />
+  </js-module>
+
+  <platform name="android">
+
+    <config-file target="AndroidManifest.xml" parent="/manifest">
+      <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+      <uses-permission android:name="android.permission.INTERNET" />
+    </config-file>
+
+    <config-file target="AndroidManifest.xml" parent="/manifest/application">
+      <meta-data
+          android:name="com.eclipsesource.tabris.android.HANDLER.com.eclipsesource.tabris.lottie.lottieview"
+          android:value="com.eclipsesource.lottie.LottieViewHandler" />
+    </config-file>
+
+    <framework src="com.airbnb.android:lottie:2.8.0" />
+
+    <source-file src="src/android/com/eclipsesource/tabris/lottie/LottieViewHandler.kt"
+                 target-dir="src/com/eclipsesource/tabris/lottie" />
+
+  </platform>
+
+</plugin>

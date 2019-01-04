@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget xmlns="http://www.w3.org/ns/widgets"
+        id="com.eclipsesource.tabris.lottie.example"
+        version="1.0.0"
+        android-packageName="com.eclipsesource.tabris.lottie.example"
+        android-versionCode="1">
+  <name>Tabris.js Lottie Plugin Example</name>
+  <description>Example for the Tabris.js Lottie plugin.</description>
+  <author email="tabris@eclipsesource.com" href="https://tabris.com">EclipseSource</author>
+
+  <preference name="EnableDeveloperConsole" value="true" />
+
+  <plugin name="tabris-plugin-lottie" spec="../" />
+
+</widget>

@@ -1,0 +1,33 @@
+{
+  "name": "tabris-plugin-lottie",
+  "version": "1.0.0",
+  "description": "A lottie integration for Tabris.js",
+  "cordova": {
+    "id": "tabris-plugin-lottie",
+    "platforms": [
+      "android"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eclipsesource/tabris-plugin-lottie.git"
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android",
+    "tabris",
+    "tabris.js",
+    "lottie"
+  ],
+  "engines": {
+    "cordovaDependencies": {
+      "1.0.0": { "cordova-android": ">7.1.0"}
+    }
+  },
+  "author": "EclipseSource",
+  "license": "Revised BSD License (3-clause license)",
+  "bugs": {
+    "url": "https://github.com/eclipsesource/tabris-plugin-lottie/issues"
+  },
+  "homepage": "https://github.com/eclipsesource/tabris-plugin-lottie#readme"
+}
