@@ -4,55 +4,45 @@ class LottieView extends tabris.Widget {
     return 'com.eclipsesource.lottie.LottieView';
   }
 
-  _listen(name, listening) {
-    if (name === 'dateChanged') {
-      this._nativeListen('dateChanged', listening);
-    } else {
-      super._listen(name, listening);
-    }
+  play() {
+    this._nativeCall('play');
   }
 
-  _trigger(name, event) {
-    if (name === 'dateChanged') {
-      this._triggerChangeEvent('date', parseInt(event.date));
-    } else {
-      return super._trigger(name, event);
-    }
+  cancel() {
+    this._nativeCall('cancel');
+  }
+
+  pause() {
+    this._nativeCall('pause');
+  }
+
+  resume() {
+    this._nativeCall('resume');
   }
 
 }
 
 tabris.NativeObject.defineProperties(LottieView.prototype, {
-  'date': {
-    type: 'number',
-    nocache: true,
-    set(name, value) {
-      this._nativeSet(name, value.toString());
-    },
-    get(name) {
-      return parseInt(this._nativeGet(name));
-    }
-  },
-  'minDate': {
-    type: 'number',
-    nocache: true,
-    set(name, value) {
-      this._nativeSet(name, value.toString());
-    },
-    get(name) {
-      return parseInt(this._nativeGet(name));
-    }
-  },
-  'maxDate': {
-    type: 'number',
-    nocache: true,
-    set(name, value) {
-      this._nativeSet(name, value.toString());
-    },
-    get(name) {
-      return parseInt(this._nativeGet(name));
-    }
-  }
+  animation: {type: 'string'},
+  animationJson: {type: 'string'},
+  speed: {type: 'number', default: 1},
+  playing: {type: 'boolean', nocache: true, readonly: true},
+  repeatCount: {type: 'number', default: 0},
+  repeatMode: {type: ['choice', ['restart', 'reverse']], default: 'restart'},
+  frame: {type: 'number', nocache: true},
+  minFrame: {type: 'number', nocache: true},
+  maxFrame: {type: 'number', nocache: true},
+  progress: {type: 'number', nocache: true},
+  minProgress: {type: 'number', default: 0},
+  maxProgress: {type: 'number', default: 1},
+  scaleMode: {type: ['choice', ['auto', 'fill']], default: 'auto'},
+  scale: {type: 'number', default: 1},
+});
+
+tabris.NativeObject.defineEvents(LottieView.prototype, {
+  animationLoaded: {native: true},
+  animationUpdated: {native: true},
+  animationStateChanged: {native: true}
 });
 
 module.exports = LottieView;

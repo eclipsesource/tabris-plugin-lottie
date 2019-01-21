@@ -1,11 +1,11 @@
 buildscript {
-    ext.kotlin_version = '1.3.10'
+    ext.kotlin_version = '1.3.11'
     repositories {
         google()
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.2.1'
+        classpath 'com.android.tools.build:gradle:3.3.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
@@ -15,8 +15,9 @@ allprojects {
         google()
         jcenter()
         maven { url 'https://jitpack.io' }
+        maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
         maven {
-        // provides tabris from directory repository
+            // provides tabris from directory repository
             url System.getenv("TABRIS_ANDROID_PLATFORM") + "/bin/templates/project/m2repository"
         }
     }

@@ -25,14 +25,14 @@
 
     <config-file target="AndroidManifest.xml" parent="/manifest/application">
       <meta-data
-          android:name="com.eclipsesource.tabris.android.HANDLER.com.eclipsesource.tabris.lottie.lottieview"
+          android:name="com.eclipsesource.tabris.android.HANDLER.com.eclipsesource.lottie.lottieview"
           android:value="com.eclipsesource.lottie.LottieViewHandler" />
     </config-file>
 
     <framework src="com.airbnb.android:lottie:2.8.0" />
 
-    <source-file src="src/android/com/eclipsesource/tabris/lottie/LottieViewHandler.kt"
-                 target-dir="src/com/eclipsesource/tabris/lottie" />
+    <source-file src="src/android/com/eclipsesource/lottie/LottieViewHandler.kt"
+                 target-dir="src/com/eclipsesource/lottie" />
 
   </platform>
 

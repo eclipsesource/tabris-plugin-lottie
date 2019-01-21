@@ -1,7 +1,7 @@
 {
   "name": "tabris-plugin-lottie",
   "version": "1.0.0",
-  "description": "A lottie integration for Tabris.js",
+  "description": "A Lottie integration for Tabris.js",
   "cordova": {
     "id": "tabris-plugin-lottie",
     "platforms": [
