@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.Lottie" parent="@style/Theme.Tabris.Light.DarkAppBar">
+        <item name="colorPrimary">#00d2c1</item>
+        <item name="colorPrimaryDark">#00b2a4</item>
+        <item name="colorAccent">#00b2a4</item>
+    </style>
+
+</resources>

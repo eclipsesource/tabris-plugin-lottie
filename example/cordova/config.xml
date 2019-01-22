@@ -19,6 +19,11 @@
       <application android:usesCleartextTraffic="true" />
     </edit-config>
 
+    <resource-file src="res/android/values/lottie_themes.xml"
+                   target="app/src/main/res/values/lottie_themes.xml" />
+
+    <preference name="Theme" value="@style/Theme.Lottie" />
+
   </platform>
 
 </widget>

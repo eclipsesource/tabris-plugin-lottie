@@ -1,8 +1,13 @@
 {
   "title": "Tabris Lottie Example",
   "description": "Example for the Tabris Lottie plugin.",
-  "main": "src/app.js",
+  "main": "dist/app.js",
   "dependencies": {
-    "tabris": "nightly"
+    "tabris": "nightly",
+    "typescript": "^3.2.4"
+  },
+  "scripts": {
+    "build": "tsc -p .",
+    "watch": "tsc -p . -w --preserveWatchOutput --inlineSourceMap"
   }
 }
