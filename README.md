@@ -1,6 +1,6 @@
 # Tabris.js Lottie Plugin
 
-A [Lottie](http://airbnb.io/lottie/) widget for [Tabris.js](https://tabrisjs.com), allowing to show and control lottie animations. This plugin currently supports only Android.
+A [Lottie](http://airbnb.io/lottie/) widget for [Tabris.js](https://tabrisjs.com), allowing to display and control Lottie animations. The plugin currently supports Android.
 
 ![Lottie widget on Android](assets/screenshots/lottie-android.png)
 
@@ -74,8 +74,7 @@ The plugin api consists of the `eslottie.LottieView` [`Widget`](http://docs.tabr
 * The `scaleMode` allows to change the size of the animation when it does not match the bounds of the `LottieView`.
 * The default value `auto` scales the animation to match the `Widget` bounds but does not scale the animation up. The
  value `fill` scales the animation to the bounds of the `LottieView`, making it fit inside but not changing its 
- proportions. The two modes work in the same manor as the `scaleMode` in the Tabris.js [`ImageView`](http://docs.tabris
- .com/latest/api/ImageView.html#scalemode).
+ proportions. The two modes work in the same manor as the `scaleMode` in the Tabris.js [`ImageView`](http://docs.tabris.com/latest/api/ImageView.html#scalemode).
 * To retrieve the size of a loaded animation in dp the `composition` offers the `width` and `height` properties.
 
 ##### `scale` : _number_, default: `1`
