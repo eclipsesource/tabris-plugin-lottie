@@ -6,7 +6,7 @@
 
 
   <name>Tabris.js Lottie Plugin</name>
-  <description>A lottie plugin for Tabris.js</description>
+  <description>Lottie animations for Tabris.js</description>
   <author>EclipseSource</author>
   <license>Revised BSD License (3-clause license)</license>
   <repo>https://github.com/eclipsesource/tabris-plugin-lottie.git</repo>
