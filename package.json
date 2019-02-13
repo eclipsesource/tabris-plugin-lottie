@@ -2,6 +2,7 @@
   "name": "tabris-plugin-lottie",
   "version": "1.0.0",
   "description": "Lottie animations for Tabris.js",
+  "types": "./types/index.d.ts",
   "cordova": {
     "id": "tabris-plugin-lottie",
     "platforms": [
@@ -17,12 +18,18 @@
     "cordova-android",
     "tabris",
     "tabris.js",
-    "lottie"
+    "lottie",
+    "animation"
   ],
   "engines": {
     "cordovaDependencies": {
-      "1.0.0": { "cordova-android": ">7.1.0"}
+      "1.0.0": {
+        "cordova-android": ">=8.0.0"
+      }
     }
+  },
+  "devDependencies": {
+    "tabris": "nightly"
   },
   "author": "EclipseSource",
   "license": "Revised BSD License (3-clause license)",
