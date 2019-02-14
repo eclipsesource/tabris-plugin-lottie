@@ -22,6 +22,7 @@ orbs:
           - run: pwd
           - run: ls -la
           - run: cd <<parameters.path>>
+          - run: ls -la
       tabris_build:
         parameters:
           platform:
