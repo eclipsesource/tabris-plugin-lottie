@@ -7,28 +7,6 @@ orbs:
       android_executor:
         docker:
           - image: circleci/android:api-28-node
-    commands:
-      printmessage:
-        steps:
-          - run: echo "We will now do special things"
-      install_tabris_cli:
-        steps:
-          - run: sudo npm install tabris-cli -g
-      cd_to_app_dir:
-        parameters:
-          path:
-            type: string
-        steps:
-          - run: pwd
-          - run: ls -la
-          - run: cd <<parameters.path>>
-          - run: ls -la
-      tabris_build:
-        parameters:
-          platform:
-            type: string
-        steps:
-          - run: tabris build <<parameters.platform>>
     jobs:
       build:
         parameters:
@@ -42,13 +20,9 @@ orbs:
             default: ./
         executor: android_executor
         steps:
-          - printmessage
           - checkout
-          - install_tabris_cli
-          - cd_to_app_dir:
-              path: <<parameters.path>>
-          - tabris_build:
-              platform: <<parameters.platform>>
+          - run: sudo npm install tabris-cli -g
+          - run: cd <<parameters.path>> && tabris build <<parameters.platform>>
 
 workflows:
   "Tabris build":
