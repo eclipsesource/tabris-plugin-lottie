@@ -13,7 +13,7 @@ orbs:
           - run: echo "We will now do special things"
       install_tabris_cli:
         steps:
-          - run: npm install tabris-cli -g
+          - run: sudo npm install tabris-cli -g
       cd_to_app_dir:
         parameters:
           path:
