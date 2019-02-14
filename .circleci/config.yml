@@ -19,6 +19,7 @@ orbs:
           path:
             type: string
         steps:
+          - run: pwd
           - run: cd <<parameters.path>>
       tabris_build:
         parameters:
