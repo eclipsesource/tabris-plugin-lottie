@@ -1,9 +1,54 @@
 version: 2.1
+description: Build Tabris.js apps
 
 orbs:
-  hello: circleci/hello-build@0.0.7 # uses the circleci/buildpack-deps docker image
+  tabris:
+    executors:
+      android_executor:
+        docker:
+          - image: circleci/android:api-28-node
+    commands:
+      printmessage:
+        steps:
+          - run: echo "We will now do special things"
+      install_tabris_cli:
+        steps:
+          - run: npm install tabris-cli -g
+      cd_to_app_dir:
+        parameters:
+          path:
+            type: string
+        steps:
+          - run: cd <<parameters.path>>
+      tabris_build:
+        parameters:
+          platform:
+            type: string
+        steps:
+          - run: tabris build <<parameters.platform>>
+    jobs:
+      build:
+        parameters:
+          platform:
+            description: The platform to build. Either "android" or "ios".
+            type: string
+            default: android
+          path:
+            description: The path to the app inside the repository. Defaults to the root directory.
+            type: string
+            default: ./
+        executor: android_executor
+        steps:
+          - printmessage
+          - install_tabris_cli
+          - cd_to_app_dir:
+              path: <<parameters.path>>
+          - tabris_build:
+              platform: <<parameters.platform>>
 
 workflows:
-  "Hello Workflow":
+  "Tabris build":
     jobs:
-      - hello/hello-build
+      - tabris/build:
+          platform: android
+          path: ./
