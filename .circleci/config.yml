@@ -22,6 +22,7 @@ orbs:
         steps:
           - checkout
           - run: sudo npm install tabris-cli@nightly -g
+          - run: mkdir gradle && cd gradle && wget https://services.gradle.org/distributions/gradle-4.10.3-bin.zip && unzip gradle-4.10.3-bin.zip && export PATH=$PATH:${WORKSPACE}/gradle/gradle-4.10.3/bin && gradle -v
           - run: cd <<parameters.path>> && npm install && tabris build <<parameters.platform>>
 
 workflows:
