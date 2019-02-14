@@ -22,6 +22,7 @@ orbs:
         steps:
           - checkout
           - run: sudo npm install tabris-cli -g
+          - run: sudo npm install typescript -g
           - run: cd <<parameters.path>> && tabris build <<parameters.platform>>
 
 workflows:
