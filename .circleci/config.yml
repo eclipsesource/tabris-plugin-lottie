@@ -51,4 +51,4 @@ workflows:
     jobs:
       - tabris/build:
           platform: android
-          path: ./
+          path: .example
