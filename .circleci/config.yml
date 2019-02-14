@@ -20,7 +20,7 @@ orbs:
             type: string
         steps:
           - run: pwd
-          - run: ls -la
+          - run: ls -l
           - run: cd <<parameters.path>>
       tabris_build:
         parameters:
@@ -42,6 +42,7 @@ orbs:
         executor: android_executor
         steps:
           - printmessage
+          - checkout
           - install_tabris_cli
           - cd_to_app_dir:
               path: <<parameters.path>>
