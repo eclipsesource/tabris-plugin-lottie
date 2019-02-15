@@ -12,7 +12,8 @@ orbs:
         parameters:
           platform:
             description: The platform to build. Either "android" or "ios".
-            type: string
+            type: enum
+            enum: [android, ios]
             default: android
           path:
             description: The path to the app inside the repository. Defaults to the root directory.
