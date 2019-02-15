@@ -37,7 +37,7 @@ orbs:
               export PATH=$PATH:$CIRCLE_WORKING_DIRECTORY/gradle-<<parameters.gradle-version>>/bin
               gradle -v
               cd <<parameters.path>>
-              npm install
+              npm install --save-dev
               tabris build <<parameters.platform>>
 
 workflows:
