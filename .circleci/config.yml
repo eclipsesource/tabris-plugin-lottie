@@ -32,10 +32,7 @@ orbs:
           - checkout
           - run: |
               sudo npm install tabris-cli@<<parameters.tabris-cli-version>> -g
-              wget https://services.gradle.org/distributions/gradle-<<parameters.gradle-version>>-bin.zip
-              unzip -q gradle-<<parameters.gradle-version>>-bin.zip
-              export PATH=$PATH:$CIRCLE_WORKING_DIRECTORY/gradle-<<parameters.gradle-version>>/bin
-              gradle -v
+              sudo apt-get install gradle
               cd <<parameters.path>>
               npm install --save-dev
               tabris build <<parameters.platform>>
