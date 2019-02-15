@@ -18,14 +18,22 @@ orbs:
             description: The path to the app inside the repository. Defaults to the root directory.
             type: string
             default: ./
+          tabris-cli-version:
+            description: The version of the tabris-cli to use for the build
+            type: string
+            default: nightly
+          gradle-version:
+            description: The gradle version to make available to the build
+            type: string
+            default: 4.10.3
         executor: android_executor
         steps:
           - checkout
           - run: |
-              sudo npm install tabris-cli@nightly -g
-              wget https://services.gradle.org/distributions/gradle-4.10.3-bin.zip
-              unzip gradle-4.10.3-bin.zip
-              export PATH=$PATH:$CIRCLE_WORKING_DIRECTORY/gradle-4.10.3/bin
+              sudo npm install tabris-cli@<<parameters.tabris-cli-version>> -g
+              wget https://services.gradle.org/distributions/gradle-<<parameters.gradle-version>>-bin.zip
+              unzip gradle-<parameters.gradle-version>-bin.zip
+              export PATH=$PATH:$CIRCLE_WORKING_DIRECTORY/gradle-<parameters.gradle-version>/bin
               gradle -v
               cd <<parameters.path>>
               npm install
