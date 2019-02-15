@@ -31,8 +31,8 @@ orbs:
         steps:
           - checkout
           - run: |
+              sudo apt-get -q install gradle # required to let cordova use its own gradle wrapper
               sudo npm install tabris-cli@<<parameters.tabris-cli-version>> -g
-              sudo apt-get install gradle
               cd <<parameters.path>>
               npm install --save-dev
               tabris build <<parameters.platform>>
