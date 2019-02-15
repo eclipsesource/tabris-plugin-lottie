@@ -27,6 +27,8 @@ orbs:
               unzip gradle-4.10.3-bin.zip
               export PATH=$PATH:$CIRCLE_WORKING_DIRECTORY/gradle-4.10.3/bin
               gradle -v
+              pwd
+              ls -la
               cd $CIRCLE_WORKING_DIRECTORY/<<parameters.path>>
               npm install
               tabris build <<parameters.platform>>
