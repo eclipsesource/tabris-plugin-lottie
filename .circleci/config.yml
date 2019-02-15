@@ -36,7 +36,8 @@ orbs:
               cd <<parameters.path>>
               npm install --save-dev
               tabris build <<parameters.platform>>
-
+          - store_artifacts:
+              path /build/cordova/platforms/android/app/build/outputs/apk
 workflows:
   "Tabris build":
     jobs:
