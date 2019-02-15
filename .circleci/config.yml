@@ -37,7 +37,7 @@ orbs:
               npm install --save-dev
               tabris build <<parameters.platform>>
           - store_artifacts:
-              path: $CIRCLE_WORKING_DIRECTORY/<<parameters.platform>>/build/cordova/platforms/android/app/build/outputs/apk
+              path: $CIRCLE_WORKING_DIRECTORY/<<parameters.path>>/build/cordova/platforms/android/app/build/outputs/apk
               destination: apk
 workflows:
   "Tabris build":
