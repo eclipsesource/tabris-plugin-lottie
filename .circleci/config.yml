@@ -31,16 +31,16 @@ orbs:
         steps:
           - checkout
           - run: |
-              sudo apt-get -q install gradle # required to let cordova use its own gradle wrapper
+              sudo apt-get -qq install gradle # required to let cordova use its own gradle wrapper
               sudo npm install tabris-cli@<<parameters.tabris-cli-version>> -g -q
               cd <<parameters.path>>
               npm install --save-dev
               tabris build <<parameters.platform>>
           - store_artifacts:
-              path: $CIRCLE_WORKING_DIRECTORY/<<parameters.path>>/build/cordova/platforms/android/app/build/outputs/apk
+              path: <<parameters.path>>/build/cordova/platforms/android/app/build/outputs/apk
               destination: apk
 workflows:
-  "Tabris build":
+  "Build lottie app":
     jobs:
       - tabris/build:
           platform: android
