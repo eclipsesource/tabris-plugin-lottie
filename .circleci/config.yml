@@ -26,21 +26,24 @@ orbs:
         executor: android_executor
         steps:
           - checkout
-          - run: # Required to let cordova download its own gradle wrapper to run the build.
-              name: Install gradle globally
+          - run: # Required to let cordova download its own gradle wrapper to run the build
+              name: Install gradle
               command: sudo apt-get -qq install gradle
           - run:
-              name: Install tabris-cli@<<parameters.tabris-cli-version>> used to build the app
+              name: Install tabris-cli@<<parameters.tabris-cli-version>>
               command: sudo npm install tabris-cli@<<parameters.tabris-cli-version>> -g -q
+          - run:
+              name: Install app specific npm dependencies
+              working_directory: <<parameters.path>>
+              command: npm install --save-dev
           - run:
               name: Build tabris <<parameters.platform>> app
               working_directory: <<parameters.path>>
-              command: |
-                  npm install --save-dev
-                  tabris build <<parameters.platform>>
+              command: tabris build <<parameters.platform>>
           - store_artifacts:
               path: <<parameters.path>>/build/cordova/platforms/android/app/build/outputs/apk
               destination: apk
+
 workflows:
   "Build lottie app":
     jobs:
