@@ -23,15 +23,11 @@ orbs:
             description: The version of the tabris-cli to use for the build
             type: string
             default: nightly
-          gradle-version:
-            description: The gradle version to make available to the build
-            type: string
-            default: 4.10.3
         executor: android_executor
         steps:
           - checkout
-          - run:
-              name: Install gradle globally. Required to let cordova download its own gradle wrapper to run the build.
+          - run: # Required to let cordova download its own gradle wrapper to run the build.
+              name: Install gradle globally
               command: sudo apt-get -qq install gradle
           - run:
               name: Install tabris-cli@<<parameters.tabris-cli-version>> used to build the app
