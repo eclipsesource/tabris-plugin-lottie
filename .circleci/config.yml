@@ -30,10 +30,16 @@ orbs:
         executor: android_executor
         steps:
           - checkout
-          - run: |
-              sudo apt-get -qq install gradle # required to let cordova use its own gradle wrapper
-              sudo npm install tabris-cli@<<parameters.tabris-cli-version>> -g -q
-              cd <<parameters.path>>
+          - run:
+              name: Install gradle globally. Required to let cordova download its own gradle wrapper to run the build.
+              command: sudo apt-get -qq install gradle
+          - run:
+              name: Install tabris-cli@<<parameters.tabris-cli-version>> used to build the app
+              command: sudo npm install tabris-cli@<<parameters.tabris-cli-version>> -g -q
+          - run:
+              name: Build tabris <<parameters.platform>> app
+              working_directory: <<parameters.path>>
+              command: |
               npm install --save-dev
               tabris build <<parameters.platform>>
           - store_artifacts:
