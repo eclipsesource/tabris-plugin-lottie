@@ -40,8 +40,8 @@ orbs:
               name: Build tabris <<parameters.platform>> app
               working_directory: <<parameters.path>>
               command: |
-              npm install --save-dev
-              tabris build <<parameters.platform>>
+                  npm install --save-dev
+                  tabris build <<parameters.platform>>
           - store_artifacts:
               path: <<parameters.path>>/build/cordova/platforms/android/app/build/outputs/apk
               destination: apk
