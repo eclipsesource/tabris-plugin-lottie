@@ -5,11 +5,16 @@ class LottieView extends tabris.Widget {
     this._state = 'finish';
     this.composition = null;
     this.on('stateChanged', ({state}) => this._state = state);
+    this.on('animationChanged', () => this._handleAutoPlay());
     this.on('load', () => {}); // required to get this.composition in this._trigger()
   }
 
   get _nativeType() {
     return 'com.eclipsesource.lottie.LottieView';
+  }
+
+  get state() {
+    return this._state;
   }
 
   play() {
@@ -46,6 +51,13 @@ class LottieView extends tabris.Widget {
     return super._trigger(name, event);
   }
 
+  _beforePropertyChange(property, value) {
+    if (property === 'animation') {
+      this.composition = null;
+    }
+    super._beforePropertyChange(property, value);
+  }
+
   _listen(name, listening) {
     if (name === 'stateChanged' || name === 'frameChanged') {
       this._nativeListen(name, listening);
@@ -60,36 +72,30 @@ class LottieView extends tabris.Widget {
       super._triggerChangeEvent('playing', playingState);
     }
   }
+
+  _handleAutoPlay() {
+    if (this.autoPlay) {
+      this.play();
+    }
+  }
+
 }
 
 tabris.NativeObject.defineProperties(LottieView.prototype, {
-  animation: {
-    type: 'any',
-    set(name, value) {
-      this.composition = null;
-      this._nativeSet(name, value);
-      if (this.autoPlay) {
-        this.play();
-      }
-    }
-  },
+  animation: {type: 'any', default: null},
   autoPlay: {type: 'boolean', default: true},
   speed: {type: 'number', default: 1},
-  state: {
-    type: ['choice', ['play', 'finish', 'pause', 'resume', 'cancel', 'repeat']],
-    readonly: true,
-    get() {return this._state}
-  },
   playing: {type: 'boolean', nocache: true, readonly: true},
   repeatCount: {
-    type: 'any',
-    default: 0,
-    set(name, value) {
-      this._nativeSet(name, isFinite(value) ? value : -1)
-    }
+    type: {
+      encode(value) {
+        return isFinite(value) ? value : -1;
+      }
+    },
+    default: 0
   },
-  repeatMode: {type: ['choice', ['restart', 'reverse']], default: 'restart'},
-  scaleMode: {type: ['choice', ['auto', 'fill']], default: 'auto'},
+  repeatMode: {type: ['restart', 'reverse'], type: 'string', default: 'restart'},
+  scaleMode: {choice: ['auto', 'fill'], type: 'string', default: 'auto'},
   scale: {type: 'number', default: 1},
   frame: {type: 'number', nocache: true},
   minFrame: {type: 'number', nocache: true},
