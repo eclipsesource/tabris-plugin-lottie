@@ -9,7 +9,7 @@
   <description>Lottie animations for Tabris.js</description>
   <author>EclipseSource</author>
   <license>Revised BSD License (3-clause license)</license>
-  <repo>https://github.com/eclipsesource/tabris-plugin-lottie.git</repo>
+  <repo>https://github.com/eclipsesource/tabris-plugin-lottie.git#update-version</repo>
   <issue>https://github.com/eclipsesource/tabris-plugin-lottie/issues</issue>
 
   <js-module src="www/LottieView.js" name="lottieview">
