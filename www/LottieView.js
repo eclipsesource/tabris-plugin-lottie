@@ -94,7 +94,7 @@ tabris.NativeObject.defineProperties(LottieView.prototype, {
     },
     default: 0
   },
-  repeatMode: {type: ['restart', 'reverse'], type: 'string', default: 'restart'},
+  repeatMode: {choice: ['restart', 'reverse'], type: 'string', default: 'restart'},
   scaleMode: {choice: ['auto', 'fill'], type: 'string', default: 'auto'},
   scale: {type: 'number', default: 1},
   frame: {type: 'number', nocache: true},
