@@ -29,7 +29,7 @@
           android:value="com.eclipsesource.lottie.LottieViewHandler" />
     </config-file>
 
-    <framework src="com.airbnb.android:lottie:3.0.7" />
+    <framework src="com.airbnb.android:lottie:3.1.0" />
 
     <source-file src="src/android/com/eclipsesource/lottie/LottieViewHandler.kt"
                  target-dir="src/com/eclipsesource/lottie" />
