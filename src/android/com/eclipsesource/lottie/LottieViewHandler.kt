@@ -2,7 +2,6 @@ package com.eclipsesource.lottie
 
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
-import android.util.JsonReader
 import android.widget.ImageView.ScaleType.CENTER_CROP
 import android.widget.ImageView.ScaleType.CENTER_INSIDE
 import com.airbnb.lottie.LottieAnimationView
@@ -54,7 +53,7 @@ class LottieViewHandler(private val scope: ActivityScope) : ViewHandler<LottieAn
           val uri = scope.uriBuilder.build(animation).toString()
           if (uri.startsWith("file:///android_asset/")) {
             val assetStream = scope.context.assets.open(uri.removePrefix("file:///android_asset/"))
-            setAnimation(JsonReader(assetStream.reader()), uri)
+            setAnimation(assetStream, uri)
           } else {
             setAnimationFromUrl(uri)
           }
