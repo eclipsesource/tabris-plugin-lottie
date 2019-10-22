@@ -11,7 +11,7 @@
 
   <preference name="EnableDeveloperConsole" value="true" />
 
-  <plugin name="tabris-plugin-lottie" spec="https://github.com/eclipsesource/tabris-plugin-lottie.git" />
+  <plugin name="tabris-plugin-lottie" spec="https://github.com/eclipsesource/tabris-plugin-lottie.git#update-version" />
 
   <platform name="android">
 
