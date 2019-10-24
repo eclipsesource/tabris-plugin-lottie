@@ -30,7 +30,7 @@ contentView.append(
                          background='white' cornerRadius={8} elevation={4}
                          onLoad={initControls} onFrameChanged={updateProgressPosition}
                          onPlayingChanged={togglePlaybackButton}/>
-    <Composite id='controls' top={['prev()', 8]} left={0} right={0}>
+    <Composite top={['prev()', 8]} left={0} right={0}>
       <eslottie.LottieView id='playButton' left={16} width={56} height={56} animation='resources/play-pause.json'
                            minFrame={10} maxFrame={25} highlightOnTouch='true' cornerRadius={28}
                            onTap={toggleLottieViewPlayback}/>
@@ -39,7 +39,6 @@ contentView.append(
   </WidgetCollection>
 );
 
-const controls = contentView.find('#controls').first(Composite);
 const lottieView = contentView.find('#lottieView').first(eslottie.LottieView);
 const progressSlider = contentView.find('#progressSlider').first(Slider);
 const playButton = contentView.find('#playButton').first(eslottie.LottieView);
@@ -50,7 +49,7 @@ contentView.onResize((e) => lottieView.height = e.width - 16 * 2);
 showAnimation({index: 0});
 
 function initControls({composition}) {
-  controls.enabled = true;
+  updateControlsEnabled(true);
   progressSlider.maximum = composition.frames
 }
 
@@ -85,12 +84,17 @@ function updateLottieViewPosition({selection}) {
 
 function showAnimation({index}) {
   progressSlider.selection = 0;
-  controls.enabled = false;
+  updateControlsEnabled(false);
   if (fetchCheckBox.checked) {
     loadViaFetch(index);
   } else {
     lottieView.animation = 'resources/' + LOTTIE_FILES[index];
   }
+}
+
+function updateControlsEnabled(enabled) {
+  playButton.enabled = enabled;
+  progressSlider.enabled = enabled;
 }
 
 function loadViaFetch(index) {
