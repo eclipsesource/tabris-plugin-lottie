@@ -3,8 +3,10 @@
   "description": "Example for the Tabris Lottie plugin.",
   "main": "dist/app.js",
   "dependencies": {
-    "tabris": "nightly",
-    "typescript": "^3.2.4"
+    "tabris": "nightly"
+  },
+  "devDependencies": {
+    "typescript": "^3.7.2"
   },
   "scripts": {
     "build": "tsc -p .",
