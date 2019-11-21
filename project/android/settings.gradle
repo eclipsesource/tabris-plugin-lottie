@@ -1,1 +1,3 @@
 include 'lottie'
+
+rootProject.name = 'tabris-plugin-lottie'

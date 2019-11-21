@@ -52,8 +52,7 @@ class LottieViewHandler(private val scope: ActivityScope) : ViewHandler<LottieAn
         } else {
           val uri = scope.uriBuilder.build(animation).toString()
           if (uri.startsWith("file:///android_asset/")) {
-            val assetStream = scope.context.assets.open(uri.removePrefix("file:///android_asset/"))
-            setAnimation(assetStream, uri)
+            setAnimation(scope.context.assets.open(uri.removePrefix("file:///android_asset/")), uri)
           } else {
             setAnimationFromUrl(uri)
           }
