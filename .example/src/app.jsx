@@ -22,7 +22,7 @@ contentView.append(
     <Composite left={0} right={0} background='#00d2c1' height={56} elevation={4}>
       <ImageView centerX={0} centerY={3} image='resources/lottie-toolbar-logo@3x.png'/>
     </Composite>
-    <Picker id='animationPicker' left={16} right={16} top={['prev()', 16]} itemCount={LOTTIE_FILES.length}
+    <Picker left={16} right={16} top={['prev()', 16]} itemCount={LOTTIE_FILES.length} selectionIndex={0}
             itemText={(index) => LOTTIE_FILES[index]} onSelect={showAnimation}/>
     <CheckBox id='fetchCheckBox' right={12} top={['prev()', 0]}/>
     <TextView left={16} alignment='right' right={['prev()', 2]} baseline='prev()' text='Load via fetch'/>
