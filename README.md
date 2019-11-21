@@ -43,7 +43,7 @@ The plugin api consists of the `eslottie.LottieView` [`Widget`](http://docs.tabr
 ##### `animation` : _string_ | _ArrayBuffer_
 
 * Loads a Lottie animation from either an uri pointing to a json or zip file, or from an `ArrayBuffer` containing a json or zip file as bytes. After the animation has been loaded the `load` event is fired.
-* By default the `autoPlay` property is set to `true`, starting the animation immediatly. Otherwise the animation has to be started explicitly (by e.g. calling `play()`). When not started the first frame is rendered.
+* By default the `autoPlay` property is set to `true`, starting the animation immediately. Otherwise the animation has to be started explicitly (by e.g. calling `play()`). When not started the first frame is rendered.
 
 ##### `autoPlay` : _boolean_, default: `true`
 
