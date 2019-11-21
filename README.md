@@ -4,6 +4,16 @@ A [Lottie](http://airbnb.io/lottie/) widget for [Tabris.js](https://tabrisjs.com
 
 ![Lottie widget on Android](assets/screenshots/lottie-android.png)
 
+## Compatibility
+
+The plugin currently supports Android. 
+
+The following table shows the plugin branches and the minimum required Tabris.js version:
+
+| Version | Branch | Minimum Tabris.js version |
+|:---:|:---:|:---:|
+| 1.0.0 | [`master`](https://github.com/eclipsesource/tabris-plugin-wirecard-epos/tree/master) | [3.3.0](https://github.com/eclipsesource/tabris-js/releases/tag/v3.3.0) |
+
 ## Example
 
 The following snippet shows how the `tabris-plugin-lottie` plugin can be used in a Tabris.js app:
@@ -154,14 +164,6 @@ The plugin api consists of the `eslottie.LottieView` [`Widget`](http://docs.tabr
 ##### `cancel()`
 
 * Stops the current playback and resets the current `frame` to the starting position given by `minFrame`.
-
-## Compatibility
-
-Compatible with [Tabris.js 3.0.0](https://github.com/eclipsesource/tabris-js/releases/tag/v3.0.0)
-
-### Supported platforms
-
-* Android
 
 ## Development of the widget
 
